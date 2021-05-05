@@ -21,5 +21,10 @@ class Article(models.Model):
 
         super(Article, self).save(*args, **kwargs)
 
+    @property
+    def summary(self) -> str:
+        # gets only the 30 first characters of the body
+        return self.body[:20] + '...'
+
     def __str__(self):
         return self.title
