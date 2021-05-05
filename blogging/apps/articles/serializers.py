@@ -8,7 +8,7 @@ class ArticleSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Article
-        fields = ['url', 'slug', 'title', 'body', 'image', 'author', 'createdAt']
+        fields = ['url', 'slug', 'title', 'body', 'image', 'createdAt']
         lookup_field = 'slug'
         extra_kwargs = {
             'url': {'lookup_field': 'slug'}
