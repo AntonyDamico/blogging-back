@@ -8,6 +8,7 @@ class Article(models.Model):
     title = models.CharField(max_length=255)
     body = models.TextField()
     image = models.ImageField(upload_to='images/', default='images/default.jpg')
+    author = models.ForeignKey('auth.User', related_name='articles', on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
