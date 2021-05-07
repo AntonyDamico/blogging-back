@@ -17,7 +17,6 @@ class RegisterSerializer(serializers.ModelSerializer):
         return user
 
 
-
 class LoginSerializer(serializers.Serializer):
     id = serializers.CharField(read_only=True)
     username = serializers.CharField(max_length=255)
