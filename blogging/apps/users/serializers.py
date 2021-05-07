@@ -27,7 +27,10 @@ class LoginSerializer(serializers.Serializer):
         req_pass = data['password']
         user = authenticate(username=req_username, password=req_pass)
         if not user:
-            raise serializers.ValidationError('incorrect user or password')
+            raise serializers.ValidationError(
+                {'error': 'incorrect user or password'},
+                code='invalid',
+            )
 
         return {
             'id': user.id,
