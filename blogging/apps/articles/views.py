@@ -6,9 +6,15 @@ from .serializers import ArticleListSerializer, ArticleDetailSerializer
 
 
 class ArticleViewSet(ModelViewSet):
-    queryset = Article.objects.all()
+    model = Article
     lookup_field = 'slug'
     permission_classes = [IsAuthenticatedOrReadOnly]
+
+    def get_queryset(self):
+        sort_by = self.request.query_params.get('sort')
+        if sort_by == 'title':
+            return self.model.objects.order_by('title')
+        return self.model.objects.all()
 
     def get_serializer_class(self):
         if self.action == 'list':
