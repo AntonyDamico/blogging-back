@@ -13,8 +13,8 @@ class ArticleViewSet(ModelViewSet):
     def get_queryset(self):
         sort_by = self.request.query_params.get('sort')
         if sort_by == 'title':
-            return Article.objects.order_by('title')
-        return Article.objects.all()
+            return self.model.objects.order_by('title')
+        return self.model.objects.all()
 
     def get_serializer_class(self):
         if self.action == 'list':
