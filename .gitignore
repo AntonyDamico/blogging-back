@@ -2,4 +2,4 @@
 .idea
 __pycache__/
 *.py[cod]
-db.sqlite3
+db2.sqlite3
