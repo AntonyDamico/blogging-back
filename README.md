@@ -30,4 +30,4 @@ docker-compose run web python manage.py migrate
 
 # Consideraciones
 
-- La authenticación está ralizada con la metodología de Basic Auth
+- La authenticación está ralizada con la metodología de HTTP Basic
