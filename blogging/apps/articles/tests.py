@@ -25,3 +25,9 @@ class ArticleModelTest(TestCase):
         title_slug = slugify(self.article.title)
         self.assertNotEqual(self.article.slug, '')
         self.assert_(self.article.slug.startswith(title_slug))
+
+    def test_summary_is_correct(self):
+        """El summary del artículo debe ser los primeros 20 caracters del body con tres puntos al final"""
+        summary = self.article.body[:20] + '...'
+        self.assertEqual(self.article.summary, summary)
+
