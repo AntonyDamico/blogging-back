@@ -3,12 +3,12 @@ from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticate
 
 from .models import Article
 from .serializers import ArticleListSerializer, ArticleDetailSerializer
-
+from .permissions import IsAuthorOrReadonly
 
 class ArticleViewSet(ModelViewSet):
     model = Article
     lookup_field = 'slug'
-    permission_classes = [IsAuthenticatedOrReadOnly]
+    permission_classes = [IsAuthenticatedOrReadOnly, IsAuthorOrReadonly]
 
     def get_queryset(self):
         sort_by = self.request.query_params.get('sort')
