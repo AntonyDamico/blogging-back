@@ -27,3 +27,7 @@ docker-compose run web python manage.py migrate
 
 - `POST /api/users/login` para hacer login de un usuario
 - `POST /api/register` para hacer el registro del usuario
+
+# Consideraciones
+
+- La authenticación está ralizada con la metodología de Basic Auth
