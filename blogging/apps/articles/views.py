@@ -5,6 +5,7 @@ from .models import Article
 from .serializers import ArticleListSerializer, ArticleDetailSerializer
 from .permissions import IsAuthorOrReadonly
 
+
 class ArticleViewSet(ModelViewSet):
     model = Article
     lookup_field = 'slug'
